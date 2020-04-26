@@ -10,13 +10,23 @@ class ListingsController < ApplicationController
 
     end
 
-    def new
-        @listing = Listing.new
-    end
+
 
     def create
         #finish logic for creating a record
-        Listing.create(listing_params)
+        @listing = Listing.create(listing_params)
+        if @listing.errors.any?
+            @breeds = Breed.all
+            render "new"
+        else 
+            redirect_to listings_path
+        end
+    end
+
+    def new
+        @breeds = Breed.all
+        @sexes = Listing.sexes.keys
+        @listing = Listing.new
     end
 
     def edit

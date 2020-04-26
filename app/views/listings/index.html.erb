@@ -1,1 +1,7 @@
-Index
+<% for listing in @listings %>
+    <div class="card">
+        <% if listing.picture.attached? %>
+              <%= image_tag listing.picture %>
+        <% end %>
+    </div>
+<% end %>

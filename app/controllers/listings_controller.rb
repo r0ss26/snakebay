@@ -16,7 +16,10 @@ class ListingsController < ApplicationController
 
     def create
         #finish logic for creating a record
-        Listing.create(listing_params)
+        @listing = Listing.create(listing_params)
+        if @listing.errors.any?
+            render "new"
+        end
     end
 
     def edit

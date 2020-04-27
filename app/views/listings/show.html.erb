@@ -1,12 +1,13 @@
 
-Title: <%= @snake.title%>
-Description: <%= @snake.description%>
-Breed: <%= @snake.breed.name %>
-Sex: <%= @snake.sex%>
-Price: <%= @snake.price%>
-Deposit: <%= @snake.deposit%>
-State: <%= @snake.state%>
-City: <%= @snake.city%>
-Date of Birth: <%= @snake.date_of_birth%>
-Diet: <%= @snake.diet%>
+<div>Title: <%= @snake.title%></div>
+<div>Description: <%= @snake.description%></div>
+<div>Breed: <%= @snake.breed.name %></div>
+<div>Sex: <%= @snake.sex%></div>
+<div>Price: <%= @snake.price%></div>
+<div>Deposit: <%= @snake.deposit%></div>
+<div>State: <%= @snake.state%></div>
+<div>City: <%= @snake.city%></div>
+<div>Date of Birth: <%= @snake.date_of_birth%></div>
+<div>Diet: <%= @snake.diet%></div>
 
+<%= link_to "Delete",  listing_path(params[:id]), :method => :delete %>

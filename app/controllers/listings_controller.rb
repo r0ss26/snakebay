@@ -46,6 +46,8 @@ class ListingsController < ApplicationController
 
     def destroy
         #finish logic for deleting the record
+        Listing.find(params[:id]).destroy
+        redirect_to listings_path
     end
 
     private

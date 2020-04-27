@@ -30,11 +30,18 @@ class ListingsController < ApplicationController
     def edit
         @listing = Listing.find(params[:id])
         set_breeds_and_sexes
-        puts @listing.title
     end
 
     def update
         #finsih logic for updating the record
+        @listing = Listing.find(params[:id])
+        @listing.update(listing_params)
+        if @listing.errors.any?
+            set_breeds_and_sexes
+            render "edit"
+        else
+            redirect_to listing_path(params[:id])
+        end
     end
 
     def destroy

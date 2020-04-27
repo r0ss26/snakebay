@@ -7,7 +7,7 @@ class ListingsController < ApplicationController
     end
 
     def show
-
+        @snake = Listing.find(params[:id])
     end
 
     def new
@@ -17,14 +17,20 @@ class ListingsController < ApplicationController
 
     def create
         #finish logic for creating a record
+        puts listing_params
         @listing = Listing.create(listing_params)
         if @listing.errors.any?
             set_breeds_and_sexes
             render "new"
+        else 
+            redirect_to listings_path
         end
     end
 
     def edit
+        @listing = Listing.find(params[:id])
+        set_breeds_and_sexes
+        puts @listing.title
     end
 
     def update
@@ -42,7 +48,7 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-        params.require(:listing).permit(:title, :description, :breed_id, :sex, :price, :deposit, :date_of_birth, :diet, :picture)
+        params.require(:listing).permit(:title, :description, :breed_id, :sex, :price, :deposit, :date_of_birth, :diet, :city, :state, :picture)
     end
 
     def set_breeds_and_sexes

@@ -10,4 +10,5 @@
 <div>Date of Birth: <%= @snake.date_of_birth%></div>
 <div>Diet: <%= @snake.diet%></div>
 
+<%= link_to "Edit",  edit_listing_path(params[:id]) %>
 <%= link_to "Delete",  listing_path(params[:id]), :method => :delete %>

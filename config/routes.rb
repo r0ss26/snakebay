@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "/", to: "pages#home", as: "root"
 
   get "/listings", to: "listings#index", as: "listings"
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   patch "/listings/:id", to: "listings#update"
   delete "/listings/:id", to: "listings#destroy"
   get "/listings/:id/edit", to: "listings#edit", as: "edit_listing"
+  
 
   # get "*path", to: "pages#not_found"
 end

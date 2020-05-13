@@ -1,7 +1,7 @@
 class Listing < ApplicationRecord
   belongs_to :breed
-  has_one_attached :picture
   enum sex: { female: 0, male: 1 }
-  validates :sex, presence: true
-  validates :title, presence: true
+  validates :title, :breed_id, :sex, :price, :deposit, :city, :state, :date_of_birth, presence: true
+  has_one_attached :picture
+  belongs_to :user
 end

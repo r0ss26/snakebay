@@ -7,7 +7,7 @@
 <% end %>
 
 
-<%= form_with(url: listing_path(@listing.id) ,model: @listing, local: true) do |form| %>
+<%= form_with(url: listing_path(@listing.id), model: @listing, local: true) do |form| %>
     <div class="title-field">
         <%= form.label :title %>
         <%= form.text_field :title %>
